@@ -18,13 +18,15 @@ console.log(gallery);
 
 
 
-gallery.addEventListener("click", onGalleryClick );
 
-const onGalleryClick = (event) => {
+gallery.addEventListener("click", onGalleryClick ); 
+
+function onGalleryClick (event) {
   event.preventDefault();
+
   if (event.target.nodeName !== 'IMG') return;
   const instance = basicLightbox.create(`
-      <img src="${event.target}" width="800" height="600">
+      <img src="${event.target.dataset.source}" width="800" height="600">
   `)
 
   instance.show()
